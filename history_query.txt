@@ -1,0 +1,11 @@
+ALTER TABLE `data_order`  ADD `remote_address` VARCHAR(30) NULL  AFTER `status_debit`;
+
+CREATE TABLE `nzm`.`pppoe_server` ( `id` INT NOT NULL AUTO_INCREMENT , `service_name` VARCHAR(100) NULL , `interface` VARCHAR(50) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `pppoe_server` ADD `id_server` VARCHAR(50) NULL AFTER `id`;
+
+ALTER TABLE `pppoe_server` ADD `status` ENUM('0','1') NULL AFTER `interface`;
+
+ALTER TABLE `pppoe_server` CHANGE `status` `is_active` ENUM('0','1') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL;
+
+DROP TABLE `nzm`.`pppoe_server`
